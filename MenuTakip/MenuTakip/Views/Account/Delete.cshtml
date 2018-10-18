@@ -1,0 +1,108 @@
+﻿
+@model MenuTakip.Models.RegisterViewModel
+@{
+    ViewBag.Title = "Sil";
+}
+
+@Html.ValidationSummary()
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <!-- Input -->
+    <div class="row clearfix">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <div class="card">
+                <div class="header">
+                    <h2>Kullanıcıyı silmek istediğinizden emin misiniz?</h2>
+                    <div class="header-dropdown m-r--5">
+                        <input type="submit" value="Sil" class="btn btn-danger waves-effect" />
+                        <button type="button" class="btn btn-primary waves-effect" onclick="location.href='@Url.Action("Edit", "Account", new { id = Model.Id })'"> Geri Dön</button>
+                    </div>
+                </div>
+                <div class="body">
+                    <div class="row clearfix">
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                @Html.LabelFor(m => m.name, new { @class = "form-control" })
+                                @Html.DisplayFor(m => m.name, new { @class = "form-control" })
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row clearfix">
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                @Html.LabelFor(m => m.soyad, new { @class = "form-control" })
+                                @Html.DisplayFor(m => m.soyad, new { @class = "form-control" })
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row clearfix">
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                @Html.LabelFor(m => m.Email, new { @class = "form-control" })
+                                @Html.DisplayFor(m => m.Email, new { @class = "form-control" })
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row clearfix">
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                @Html.LabelFor(m => m.RoleName, new { @class = "form-control" })
+                                @Html.DisplayFor(m => m.RoleName, new { @class = "form-control" })
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row clearfix">
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                @Html.LabelFor(m => m.maas, new { @class = "form-control" })
+                                @Html.DisplayFor(m => m.maas, new { @class = "form-control" })
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row clearfix">
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                @Html.LabelFor(m => m.kartNo, new { @class = "form-control" })
+                                @Html.DisplayFor(m => m.kartNo, new { @class = "form-control" })
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row clearfix">
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                @Html.LabelFor(m => m.tc, new { @class = "form-control" })
+                                @Html.DisplayFor(m => m.tc, new { @class = "form-control" })
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row clearfix">
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                @Html.LabelFor(m => m.cep, new { @class = "form-control" })
+                                @Html.DisplayFor(m => m.cep, new { @class = "form-control" })
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row clearfix">
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                @Html.LabelFor(m => m.adres, new { @class = "form-control" })
+                                @Html.DisplayFor(m => m.adres, new { @class = "form-control" })
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+            <!-- #END# Input -->
+}
+
+
+
+
+
+

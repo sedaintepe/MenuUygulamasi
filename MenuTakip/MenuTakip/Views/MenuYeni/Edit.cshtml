@@ -1,0 +1,109 @@
+﻿@model MenuTakip.Models.MenuModel
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Edit</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <h4>MenuModel</h4>
+        <hr />
+        @Html.ValidationSummary(true)
+        @Html.HiddenFor(model => model.menuId)
+
+        @*<div class="form-group">
+            @Html.LabelFor(model => model.yemekId, "yemekId", new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("yemekId", String.Empty)
+                @Html.ValidationMessageFor(model => model.yemekId)
+            </div>
+        </div>*@
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Kisi, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Kisi)
+                @Html.ValidationMessageFor(model => model.Kisi)
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.menuNo, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.menuNo)
+                @Html.ValidationMessageFor(model => model.menuNo)
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.menuBaslik, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.menuBaslik)
+                @Html.ValidationMessageFor(model => model.menuBaslik)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.tarih, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.tarih)
+                @Html.ValidationMessageFor(model => model.tarih)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.menuFiyat, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.menuFiyat)
+                @Html.ValidationMessageFor(model => model.menuFiyat)
+            </div>
+        </div>
+<div class="form-group">
+    <label class="control-label col-md-2">Yemeks Assigned</label>
+    <div class="col-md-offset-2 col-md-10">
+        <table>
+            <tr>
+                @{
+    int cnt = 0;
+    List<MenuTakip.ViewData.menusYemekVM> yemekler= ViewBag.Yemekler;
+
+    foreach (var yemek in yemekler)
+    {
+        if (cnt++ % 3 == 0)
+        {
+            @:</tr><tr>
+       
+                        }
+                        @:<td>
+                       
+                            <input type="checkbox"
+                                   name="selectedYemeks"
+                                   value="@yemek.yemekId"
+                                   @(Html.Raw(yemek.Assigned ? "checked=\"checked\"" : "")) />
+                            @yemek.yemeAd
+                            @:</td>
+                        
+                        }
+                        @:</tr>
+                  
+                        }
+            </table>
+        </div>
+    </div>
+
+
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>

@@ -1,0 +1,65 @@
+﻿@model IEnumerable<MenuTakip.Models.MenuModel>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.menuNo)
+        </th>
+       
+        <th>
+            @Html.DisplayNameFor(model => model.tarih)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.menuFiyat)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.menuBaslik)
+        </th>
+
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <th>
+            @Html.DisplayFor(modelItem => item.menuNo)
+        </th>
+     
+        <td>
+            @Html.DisplayFor(modelItem => item.tarih)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.menuFiyat)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.menuBaslik)
+        </td>
+
+        <td>
+            @{
+    foreach (var yemek in item.Yemeks)
+    {
+        @:  @yemek.yemekAd <br />
+                }
+            }
+        </td>
+
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.menuId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.menuId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.menuId })
+        
+        </td>
+    </tr>
+}
+
+</table>

@@ -1,0 +1,16 @@
+﻿
+@*@{
+    ViewBag.Title = "price";
+}*@
+
+@*<h2>Kalan Maaş @ViewBag.yeni</h2>
+<div>
+    <a class="btn btn-primary" href="@Url.Action("Show","Home")">Geri Dön</a>
+</div>*@
+@if(null != TempData["alertMessage"])
+   {
+<script type="text/javascript">
+      alert('@TempData["alertMessage"]');
+</script>
+   }
+

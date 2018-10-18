@@ -1,0 +1,702 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props" Condition="Exists('..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{7360EDE0-4430-405A-8735-EB070D46D6B8}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>MenuTakip</RootNamespace>
+    <AssemblyName>MenuTakip</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.Agent.Intercept, Version=1.2.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.Agent.Intercept.1.2.1\lib\net45\Microsoft.AI.Agent.Intercept.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.DependencyCollector, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.DependencyCollector.2.0.0\lib\net45\Microsoft.AI.DependencyCollector.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.PerfCounterCollector, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.PerfCounterCollector.2.0.0\lib\net45\Microsoft.AI.PerfCounterCollector.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.ServerTelemetryChannel, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.2.0.0\lib\net45\Microsoft.AI.ServerTelemetryChannel.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.Web, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.Web.2.0.0\lib\net45\Microsoft.AI.Web.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.WindowsServer, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.WindowsServer.2.0.0\lib\net45\Microsoft.AI.WindowsServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.ApplicationInsights, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.2.0.0\lib\net45\Microsoft.ApplicationInsights.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Core, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.2.2\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.EntityFramework, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.EntityFramework.2.2.2\lib\net45\Microsoft.AspNet.Identity.EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Owin, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Owin.2.2.2\lib\net45\Microsoft.AspNet.Identity.Owin.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Owin, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.4.0.0\lib\net451\Microsoft.Owin.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Host.SystemWeb, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Host.SystemWeb.4.0.0\lib\net451\Microsoft.Owin.Host.SystemWeb.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.3.0.1\lib\net45\Microsoft.Owin.Security.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Cookies, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.Cookies.3.0.1\lib\net45\Microsoft.Owin.Security.Cookies.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.OAuth, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.OAuth.3.0.1\lib\net45\Microsoft.Owin.Security.OAuth.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Owin, Version=1.0.0.0, Culture=neutral, PublicKeyToken=f0ebd12fd5e55cc5, processorArchitecture=MSIL">
+      <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System.Web.Razor">
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.3\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Webpages">
+      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.2.3\lib\net45\System.Web.Webpages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Webpages.Deployment">
+      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.2.3\lib\net45\System.Web.Webpages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Webpages.Razor">
+      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.2.3\lib\net45\System.Web.Webpages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Helpers">
+      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.2.3\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Web.Infrastructure">
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc">
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.3\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="ContentMenu\css\animate.css" />
+    <Content Include="ContentMenu\css\bootstrap-datepicker.css" />
+    <Content Include="ContentMenu\css\bootstrap.css" />
+    <Content Include="ContentMenu\css\flexslider.css" />
+    <Content Include="ContentMenu\css\icomoon.css" />
+    <Content Include="ContentMenu\css\magnific-popup.css" />
+    <Content Include="ContentMenu\css\owl.carousel.min.css" />
+    <Content Include="ContentMenu\css\owl.theme.default.min.css" />
+    <Content Include="ContentMenu\css\style.css" />
+    <Content Include="ContentMenu\fonts\bootstrap\glyphicons-halflings-regular.svg" />
+    <Content Include="ContentMenu\fonts\flaticon\backup.txt" />
+    <Content Include="ContentMenu\fonts\flaticon\font\flaticon.css" />
+    <Content Include="ContentMenu\fonts\flaticon\font\flaticon.html" />
+    <Content Include="ContentMenu\fonts\flaticon\font\Flaticon.svg" />
+    <Content Include="ContentMenu\fonts\icomoon\icomoon.svg" />
+    <Content Include="ContentMenu\images\about-2.jpg" />
+    <Content Include="ContentMenu\images\about.jpg" />
+    <Content Include="ContentMenu\images\blog-1.jpg" />
+    <Content Include="ContentMenu\images\blog-2.jpg" />
+    <Content Include="ContentMenu\images\blog-3.jpg" />
+    <Content Include="ContentMenu\images\blog-4.jpg" />
+    <Content Include="ContentMenu\images\blog-5.jpg" />
+    <Content Include="ContentMenu\images\blog-6.jpg" />
+    <Content Include="ContentMenu\images\chef-1.jpg" />
+    <Content Include="ContentMenu\images\chef-2.jpg" />
+    <Content Include="ContentMenu\images\chef-3.jpg" />
+    <Content Include="ContentMenu\images\chef-4.jpg" />
+    <Content Include="ContentMenu\images\cover_bg_1.jpg" />
+    <Content Include="ContentMenu\images\cover_bg_2.jpg" />
+    <Content Include="ContentMenu\images\dessert-1.jpg" />
+    <Content Include="ContentMenu\images\dessert-10.jpg" />
+    <Content Include="ContentMenu\images\dessert-11.jpg" />
+    <Content Include="ContentMenu\images\dessert-12.jpg" />
+    <Content Include="ContentMenu\images\dessert-2.jpg" />
+    <Content Include="ContentMenu\images\dessert-3.jpg" />
+    <Content Include="ContentMenu\images\dessert-4.jpg" />
+    <Content Include="ContentMenu\images\dessert-5.jpg" />
+    <Content Include="ContentMenu\images\dessert-6.jpg" />
+    <Content Include="ContentMenu\images\dessert-7.jpg" />
+    <Content Include="ContentMenu\images\dessert-8.jpg" />
+    <Content Include="ContentMenu\images\dessert-9.jpg" />
+    <Content Include="ContentMenu\images\dish-1.jpg" />
+    <Content Include="ContentMenu\images\dish-10.jpg" />
+    <Content Include="ContentMenu\images\dish-11.jpg" />
+    <Content Include="ContentMenu\images\dish-12.jpg" />
+    <Content Include="ContentMenu\images\dish-13.jpg" />
+    <Content Include="ContentMenu\images\dish-14.jpg" />
+    <Content Include="ContentMenu\images\dish-2.jpg" />
+    <Content Include="ContentMenu\images\dish-3.jpg" />
+    <Content Include="ContentMenu\images\dish-4.jpg" />
+    <Content Include="ContentMenu\images\dish-5.jpg" />
+    <Content Include="ContentMenu\images\dish-6.jpg" />
+    <Content Include="ContentMenu\images\dish-7.jpg" />
+    <Content Include="ContentMenu\images\dish-8.jpg" />
+    <Content Include="ContentMenu\images\dish-9.jpg" />
+    <Content Include="ContentMenu\images\drink-1.jpg" />
+    <Content Include="ContentMenu\images\drink-10.jpg" />
+    <Content Include="ContentMenu\images\drink-11.jpg" />
+    <Content Include="ContentMenu\images\drink-12.jpg" />
+    <Content Include="ContentMenu\images\drink-2.jpg" />
+    <Content Include="ContentMenu\images\drink-3.jpg" />
+    <Content Include="ContentMenu\images\drink-4.jpg" />
+    <Content Include="ContentMenu\images\drink-5.jpg" />
+    <Content Include="ContentMenu\images\drink-6.jpg" />
+    <Content Include="ContentMenu\images\drink-7.jpg" />
+    <Content Include="ContentMenu\images\drink-8.jpg" />
+    <Content Include="ContentMenu\images\drink-9.jpg" />
+    <Content Include="ContentMenu\images\img_bg_1.jpg" />
+    <Content Include="ContentMenu\images\img_bg_2.jpg" />
+    <Content Include="ContentMenu\images\img_bg_3.jpg" />
+    <Content Include="ContentMenu\images\img_bg_4.jpg" />
+    <Content Include="ContentMenu\images\loc.png" />
+    <Content Include="ContentMenu\js\bootstrap-datepicker.js" />
+    <Content Include="ContentMenu\js\bootstrap.min.js" />
+    <Content Include="ContentMenu\js\google_map.js" />
+    <Content Include="ContentMenu\js\jquery.easing.1.3.js" />
+    <Content Include="ContentMenu\js\jquery.flexslider-min.js" />
+    <Content Include="ContentMenu\js\jquery.magnific-popup.min.js" />
+    <Content Include="ContentMenu\js\jquery.min.js" />
+    <Content Include="ContentMenu\js\jquery.stellar.min.js" />
+    <Content Include="ContentMenu\js\jquery.waypoints.min.js" />
+    <Content Include="ContentMenu\js\magnific-popup-options.js" />
+    <Content Include="ContentMenu\js\main.js" />
+    <Content Include="ContentMenu\js\modernizr-2.6.2.min.js" />
+    <Content Include="ContentMenu\js\owl.carousel.min.js" />
+    <Content Include="ContentMenu\js\respond.min.js" />
+    <Content Include="Global.asax" />
+    <Content Include="scripts\ai.0.22.9-build00167.js" />
+    <Content Include="scripts\ai.0.22.9-build00167.min.js" />
+    <Content Include="ContentMenu\.sass-cache\3d3a42b354db695451de880ccb620bbd306b6e09\bootstrap.scssc" />
+    <Content Include="ContentMenu\.sass-cache\3d3a42b354db695451de880ccb620bbd306b6e09\style.scssc" />
+    <Content Include="ContentMenu\.sass-cache\66538eab0bbc95b74860b72992879a179057b48d\_alerts.scssc" />
+    <Content Include="ContentMenu\.sass-cache\66538eab0bbc95b74860b72992879a179057b48d\_badges.scssc" />
+    <Content Include="ContentMenu\.sass-cache\66538eab0bbc95b74860b72992879a179057b48d\_breadcrumbs.scssc" />
+    <Content Include="ContentMenu\.sass-cache\66538eab0bbc95b74860b72992879a179057b48d\_button-groups.scssc" />
+    <Content Include="ContentMenu\.sass-cache\66538eab0bbc95b74860b72992879a179057b48d\_buttons.scssc" />
+    <Content Include="ContentMenu\.sass-cache\66538eab0bbc95b74860b72992879a179057b48d\_carousel.scssc" />
+    <Content Include="ContentMenu\.sass-cache\66538eab0bbc95b74860b72992879a179057b48d\_close.scssc" />
+    <Content Include="ContentMenu\.sass-cache\66538eab0bbc95b74860b72992879a179057b48d\_code.scssc" />
+    <Content Include="ContentMenu\.sass-cache\66538eab0bbc95b74860b72992879a179057b48d\_component-animations.scssc" />
+    <Content Include="ContentMenu\.sass-cache\66538eab0bbc95b74860b72992879a179057b48d\_dropdowns.scssc" />
+    <Content Include="ContentMenu\.sass-cache\66538eab0bbc95b74860b72992879a179057b48d\_forms.scssc" />
+    <Content Include="ContentMenu\.sass-cache\66538eab0bbc95b74860b72992879a179057b48d\_glyphicons.scssc" />
+    <Content Include="ContentMenu\.sass-cache\66538eab0bbc95b74860b72992879a179057b48d\_grid.scssc" />
+    <Content Include="ContentMenu\.sass-cache\66538eab0bbc95b74860b72992879a179057b48d\_input-groups.scssc" />
+    <Content Include="ContentMenu\.sass-cache\66538eab0bbc95b74860b72992879a179057b48d\_jumbotron.scssc" />
+    <Content Include="ContentMenu\.sass-cache\66538eab0bbc95b74860b72992879a179057b48d\_labels.scssc" />
+    <Content Include="ContentMenu\.sass-cache\66538eab0bbc95b74860b72992879a179057b48d\_list-group.scssc" />
+    <Content Include="ContentMenu\.sass-cache\66538eab0bbc95b74860b72992879a179057b48d\_media.scssc" />
+    <Content Include="ContentMenu\.sass-cache\66538eab0bbc95b74860b72992879a179057b48d\_mixins.scssc" />
+    <Content Include="ContentMenu\.sass-cache\66538eab0bbc95b74860b72992879a179057b48d\_modals.scssc" />
+    <Content Include="ContentMenu\.sass-cache\66538eab0bbc95b74860b72992879a179057b48d\_navbar.scssc" />
+    <Content Include="ContentMenu\.sass-cache\66538eab0bbc95b74860b72992879a179057b48d\_navs.scssc" />
+    <Content Include="ContentMenu\.sass-cache\66538eab0bbc95b74860b72992879a179057b48d\_normalize.scssc" />
+    <Content Include="ContentMenu\.sass-cache\66538eab0bbc95b74860b72992879a179057b48d\_pager.scssc" />
+    <Content Include="ContentMenu\.sass-cache\66538eab0bbc95b74860b72992879a179057b48d\_pagination.scssc" />
+    <Content Include="ContentMenu\.sass-cache\66538eab0bbc95b74860b72992879a179057b48d\_panels.scssc" />
+    <Content Include="ContentMenu\.sass-cache\66538eab0bbc95b74860b72992879a179057b48d\_popovers.scssc" />
+    <Content Include="ContentMenu\.sass-cache\66538eab0bbc95b74860b72992879a179057b48d\_print.scssc" />
+    <Content Include="ContentMenu\.sass-cache\66538eab0bbc95b74860b72992879a179057b48d\_progress-bars.scssc" />
+    <Content Include="ContentMenu\.sass-cache\66538eab0bbc95b74860b72992879a179057b48d\_responsive-embed.scssc" />
+    <Content Include="ContentMenu\.sass-cache\66538eab0bbc95b74860b72992879a179057b48d\_responsive-utilities.scssc" />
+    <Content Include="ContentMenu\.sass-cache\66538eab0bbc95b74860b72992879a179057b48d\_scaffolding.scssc" />
+    <Content Include="ContentMenu\.sass-cache\66538eab0bbc95b74860b72992879a179057b48d\_tables.scssc" />
+    <Content Include="ContentMenu\.sass-cache\66538eab0bbc95b74860b72992879a179057b48d\_thumbnails.scssc" />
+    <Content Include="ContentMenu\.sass-cache\66538eab0bbc95b74860b72992879a179057b48d\_tooltip.scssc" />
+    <Content Include="ContentMenu\.sass-cache\66538eab0bbc95b74860b72992879a179057b48d\_type.scssc" />
+    <Content Include="ContentMenu\.sass-cache\66538eab0bbc95b74860b72992879a179057b48d\_utilities.scssc" />
+    <Content Include="ContentMenu\.sass-cache\66538eab0bbc95b74860b72992879a179057b48d\_variables.scssc" />
+    <Content Include="ContentMenu\.sass-cache\66538eab0bbc95b74860b72992879a179057b48d\_wells.scssc" />
+    <Content Include="ContentMenu\.sass-cache\6c6f5c2066f3ee318d751ac60cf60e6b252a508f\_alerts.scssc" />
+    <Content Include="ContentMenu\.sass-cache\6c6f5c2066f3ee318d751ac60cf60e6b252a508f\_background-variant.scssc" />
+    <Content Include="ContentMenu\.sass-cache\6c6f5c2066f3ee318d751ac60cf60e6b252a508f\_border-radius.scssc" />
+    <Content Include="ContentMenu\.sass-cache\6c6f5c2066f3ee318d751ac60cf60e6b252a508f\_buttons.scssc" />
+    <Content Include="ContentMenu\.sass-cache\6c6f5c2066f3ee318d751ac60cf60e6b252a508f\_center-block.scssc" />
+    <Content Include="ContentMenu\.sass-cache\6c6f5c2066f3ee318d751ac60cf60e6b252a508f\_clearfix.scssc" />
+    <Content Include="ContentMenu\.sass-cache\6c6f5c2066f3ee318d751ac60cf60e6b252a508f\_forms.scssc" />
+    <Content Include="ContentMenu\.sass-cache\6c6f5c2066f3ee318d751ac60cf60e6b252a508f\_gradients.scssc" />
+    <Content Include="ContentMenu\.sass-cache\6c6f5c2066f3ee318d751ac60cf60e6b252a508f\_grid-framework.scssc" />
+    <Content Include="ContentMenu\.sass-cache\6c6f5c2066f3ee318d751ac60cf60e6b252a508f\_grid.scssc" />
+    <Content Include="ContentMenu\.sass-cache\6c6f5c2066f3ee318d751ac60cf60e6b252a508f\_hide-text.scssc" />
+    <Content Include="ContentMenu\.sass-cache\6c6f5c2066f3ee318d751ac60cf60e6b252a508f\_image.scssc" />
+    <Content Include="ContentMenu\.sass-cache\6c6f5c2066f3ee318d751ac60cf60e6b252a508f\_labels.scssc" />
+    <Content Include="ContentMenu\.sass-cache\6c6f5c2066f3ee318d751ac60cf60e6b252a508f\_list-group.scssc" />
+    <Content Include="ContentMenu\.sass-cache\6c6f5c2066f3ee318d751ac60cf60e6b252a508f\_nav-divider.scssc" />
+    <Content Include="ContentMenu\.sass-cache\6c6f5c2066f3ee318d751ac60cf60e6b252a508f\_nav-vertical-align.scssc" />
+    <Content Include="ContentMenu\.sass-cache\6c6f5c2066f3ee318d751ac60cf60e6b252a508f\_opacity.scssc" />
+    <Content Include="ContentMenu\.sass-cache\6c6f5c2066f3ee318d751ac60cf60e6b252a508f\_pagination.scssc" />
+    <Content Include="ContentMenu\.sass-cache\6c6f5c2066f3ee318d751ac60cf60e6b252a508f\_panels.scssc" />
+    <Content Include="ContentMenu\.sass-cache\6c6f5c2066f3ee318d751ac60cf60e6b252a508f\_progress-bar.scssc" />
+    <Content Include="ContentMenu\.sass-cache\6c6f5c2066f3ee318d751ac60cf60e6b252a508f\_reset-filter.scssc" />
+    <Content Include="ContentMenu\.sass-cache\6c6f5c2066f3ee318d751ac60cf60e6b252a508f\_reset-text.scssc" />
+    <Content Include="ContentMenu\.sass-cache\6c6f5c2066f3ee318d751ac60cf60e6b252a508f\_resize.scssc" />
+    <Content Include="ContentMenu\.sass-cache\6c6f5c2066f3ee318d751ac60cf60e6b252a508f\_responsive-visibility.scssc" />
+    <Content Include="ContentMenu\.sass-cache\6c6f5c2066f3ee318d751ac60cf60e6b252a508f\_size.scssc" />
+    <Content Include="ContentMenu\.sass-cache\6c6f5c2066f3ee318d751ac60cf60e6b252a508f\_tab-focus.scssc" />
+    <Content Include="ContentMenu\.sass-cache\6c6f5c2066f3ee318d751ac60cf60e6b252a508f\_table-row.scssc" />
+    <Content Include="ContentMenu\.sass-cache\6c6f5c2066f3ee318d751ac60cf60e6b252a508f\_text-emphasis.scssc" />
+    <Content Include="ContentMenu\.sass-cache\6c6f5c2066f3ee318d751ac60cf60e6b252a508f\_text-overflow.scssc" />
+    <Content Include="ContentMenu\.sass-cache\6c6f5c2066f3ee318d751ac60cf60e6b252a508f\_vendor-prefixes.scssc" />
+    <Content Include="ContentMenu\.sass-cache\70541418ad170ad4f7bff808fd1222ab904230c1\bootstrap.scssc" />
+    <Content Include="ContentMenu\.sass-cache\70541418ad170ad4f7bff808fd1222ab904230c1\style.scssc" />
+    <Content Include="ContentMenu\.sass-cache\790dbfea1c1a666616170706a48d9f355610fef6\bootstrap.scssc" />
+    <Content Include="ContentMenu\.sass-cache\790dbfea1c1a666616170706a48d9f355610fef6\style.scssc" />
+    <Content Include="ContentMenu\.sass-cache\84144b480e49330b63f6df6644b2e53c216d0a4f\_alerts.scssc" />
+    <Content Include="ContentMenu\.sass-cache\84144b480e49330b63f6df6644b2e53c216d0a4f\_badges.scssc" />
+    <Content Include="ContentMenu\.sass-cache\84144b480e49330b63f6df6644b2e53c216d0a4f\_breadcrumbs.scssc" />
+    <Content Include="ContentMenu\.sass-cache\84144b480e49330b63f6df6644b2e53c216d0a4f\_button-groups.scssc" />
+    <Content Include="ContentMenu\.sass-cache\84144b480e49330b63f6df6644b2e53c216d0a4f\_buttons.scssc" />
+    <Content Include="ContentMenu\.sass-cache\84144b480e49330b63f6df6644b2e53c216d0a4f\_carousel.scssc" />
+    <Content Include="ContentMenu\.sass-cache\84144b480e49330b63f6df6644b2e53c216d0a4f\_close.scssc" />
+    <Content Include="ContentMenu\.sass-cache\84144b480e49330b63f6df6644b2e53c216d0a4f\_code.scssc" />
+    <Content Include="ContentMenu\.sass-cache\84144b480e49330b63f6df6644b2e53c216d0a4f\_component-animations.scssc" />
+    <Content Include="ContentMenu\.sass-cache\84144b480e49330b63f6df6644b2e53c216d0a4f\_dropdowns.scssc" />
+    <Content Include="ContentMenu\.sass-cache\84144b480e49330b63f6df6644b2e53c216d0a4f\_forms.scssc" />
+    <Content Include="ContentMenu\.sass-cache\84144b480e49330b63f6df6644b2e53c216d0a4f\_glyphicons.scssc" />
+    <Content Include="ContentMenu\.sass-cache\84144b480e49330b63f6df6644b2e53c216d0a4f\_grid.scssc" />
+    <Content Include="ContentMenu\.sass-cache\84144b480e49330b63f6df6644b2e53c216d0a4f\_input-groups.scssc" />
+    <Content Include="ContentMenu\.sass-cache\84144b480e49330b63f6df6644b2e53c216d0a4f\_jumbotron.scssc" />
+    <Content Include="ContentMenu\.sass-cache\84144b480e49330b63f6df6644b2e53c216d0a4f\_labels.scssc" />
+    <Content Include="ContentMenu\.sass-cache\84144b480e49330b63f6df6644b2e53c216d0a4f\_list-group.scssc" />
+    <Content Include="ContentMenu\.sass-cache\84144b480e49330b63f6df6644b2e53c216d0a4f\_media.scssc" />
+    <Content Include="ContentMenu\.sass-cache\84144b480e49330b63f6df6644b2e53c216d0a4f\_mixins.scssc" />
+    <Content Include="ContentMenu\.sass-cache\84144b480e49330b63f6df6644b2e53c216d0a4f\_modals.scssc" />
+    <Content Include="ContentMenu\.sass-cache\84144b480e49330b63f6df6644b2e53c216d0a4f\_navbar.scssc" />
+    <Content Include="ContentMenu\.sass-cache\84144b480e49330b63f6df6644b2e53c216d0a4f\_navs.scssc" />
+    <Content Include="ContentMenu\.sass-cache\84144b480e49330b63f6df6644b2e53c216d0a4f\_normalize.scssc" />
+    <Content Include="ContentMenu\.sass-cache\84144b480e49330b63f6df6644b2e53c216d0a4f\_pager.scssc" />
+    <Content Include="ContentMenu\.sass-cache\84144b480e49330b63f6df6644b2e53c216d0a4f\_pagination.scssc" />
+    <Content Include="ContentMenu\.sass-cache\84144b480e49330b63f6df6644b2e53c216d0a4f\_panels.scssc" />
+    <Content Include="ContentMenu\.sass-cache\84144b480e49330b63f6df6644b2e53c216d0a4f\_popovers.scssc" />
+    <Content Include="ContentMenu\.sass-cache\84144b480e49330b63f6df6644b2e53c216d0a4f\_print.scssc" />
+    <Content Include="ContentMenu\.sass-cache\84144b480e49330b63f6df6644b2e53c216d0a4f\_progress-bars.scssc" />
+    <Content Include="ContentMenu\.sass-cache\84144b480e49330b63f6df6644b2e53c216d0a4f\_responsive-embed.scssc" />
+    <Content Include="ContentMenu\.sass-cache\84144b480e49330b63f6df6644b2e53c216d0a4f\_responsive-utilities.scssc" />
+    <Content Include="ContentMenu\.sass-cache\84144b480e49330b63f6df6644b2e53c216d0a4f\_scaffolding.scssc" />
+    <Content Include="ContentMenu\.sass-cache\84144b480e49330b63f6df6644b2e53c216d0a4f\_tables.scssc" />
+    <Content Include="ContentMenu\.sass-cache\84144b480e49330b63f6df6644b2e53c216d0a4f\_thumbnails.scssc" />
+    <Content Include="ContentMenu\.sass-cache\84144b480e49330b63f6df6644b2e53c216d0a4f\_tooltip.scssc" />
+    <Content Include="ContentMenu\.sass-cache\84144b480e49330b63f6df6644b2e53c216d0a4f\_type.scssc" />
+    <Content Include="ContentMenu\.sass-cache\84144b480e49330b63f6df6644b2e53c216d0a4f\_utilities.scssc" />
+    <Content Include="ContentMenu\.sass-cache\84144b480e49330b63f6df6644b2e53c216d0a4f\_variables.scssc" />
+    <Content Include="ContentMenu\.sass-cache\84144b480e49330b63f6df6644b2e53c216d0a4f\_wells.scssc" />
+    <Content Include="ContentMenu\.sass-cache\a210ec23417b628940ccbeb3ba6904ad87671488\_alerts.scssc" />
+    <Content Include="ContentMenu\.sass-cache\a210ec23417b628940ccbeb3ba6904ad87671488\_background-variant.scssc" />
+    <Content Include="ContentMenu\.sass-cache\a210ec23417b628940ccbeb3ba6904ad87671488\_border-radius.scssc" />
+    <Content Include="ContentMenu\.sass-cache\a210ec23417b628940ccbeb3ba6904ad87671488\_buttons.scssc" />
+    <Content Include="ContentMenu\.sass-cache\a210ec23417b628940ccbeb3ba6904ad87671488\_center-block.scssc" />
+    <Content Include="ContentMenu\.sass-cache\a210ec23417b628940ccbeb3ba6904ad87671488\_clearfix.scssc" />
+    <Content Include="ContentMenu\.sass-cache\a210ec23417b628940ccbeb3ba6904ad87671488\_forms.scssc" />
+    <Content Include="ContentMenu\.sass-cache\a210ec23417b628940ccbeb3ba6904ad87671488\_gradients.scssc" />
+    <Content Include="ContentMenu\.sass-cache\a210ec23417b628940ccbeb3ba6904ad87671488\_grid-framework.scssc" />
+    <Content Include="ContentMenu\.sass-cache\a210ec23417b628940ccbeb3ba6904ad87671488\_grid.scssc" />
+    <Content Include="ContentMenu\.sass-cache\a210ec23417b628940ccbeb3ba6904ad87671488\_hide-text.scssc" />
+    <Content Include="ContentMenu\.sass-cache\a210ec23417b628940ccbeb3ba6904ad87671488\_image.scssc" />
+    <Content Include="ContentMenu\.sass-cache\a210ec23417b628940ccbeb3ba6904ad87671488\_labels.scssc" />
+    <Content Include="ContentMenu\.sass-cache\a210ec23417b628940ccbeb3ba6904ad87671488\_list-group.scssc" />
+    <Content Include="ContentMenu\.sass-cache\a210ec23417b628940ccbeb3ba6904ad87671488\_nav-divider.scssc" />
+    <Content Include="ContentMenu\.sass-cache\a210ec23417b628940ccbeb3ba6904ad87671488\_nav-vertical-align.scssc" />
+    <Content Include="ContentMenu\.sass-cache\a210ec23417b628940ccbeb3ba6904ad87671488\_opacity.scssc" />
+    <Content Include="ContentMenu\.sass-cache\a210ec23417b628940ccbeb3ba6904ad87671488\_pagination.scssc" />
+    <Content Include="ContentMenu\.sass-cache\a210ec23417b628940ccbeb3ba6904ad87671488\_panels.scssc" />
+    <Content Include="ContentMenu\.sass-cache\a210ec23417b628940ccbeb3ba6904ad87671488\_progress-bar.scssc" />
+    <Content Include="ContentMenu\.sass-cache\a210ec23417b628940ccbeb3ba6904ad87671488\_reset-filter.scssc" />
+    <Content Include="ContentMenu\.sass-cache\a210ec23417b628940ccbeb3ba6904ad87671488\_reset-text.scssc" />
+    <Content Include="ContentMenu\.sass-cache\a210ec23417b628940ccbeb3ba6904ad87671488\_resize.scssc" />
+    <Content Include="ContentMenu\.sass-cache\a210ec23417b628940ccbeb3ba6904ad87671488\_responsive-visibility.scssc" />
+    <Content Include="ContentMenu\.sass-cache\a210ec23417b628940ccbeb3ba6904ad87671488\_size.scssc" />
+    <Content Include="ContentMenu\.sass-cache\a210ec23417b628940ccbeb3ba6904ad87671488\_tab-focus.scssc" />
+    <Content Include="ContentMenu\.sass-cache\a210ec23417b628940ccbeb3ba6904ad87671488\_table-row.scssc" />
+    <Content Include="ContentMenu\.sass-cache\a210ec23417b628940ccbeb3ba6904ad87671488\_text-emphasis.scssc" />
+    <Content Include="ContentMenu\.sass-cache\a210ec23417b628940ccbeb3ba6904ad87671488\_text-overflow.scssc" />
+    <Content Include="ContentMenu\.sass-cache\a210ec23417b628940ccbeb3ba6904ad87671488\_vendor-prefixes.scssc" />
+    <Content Include="ContentMenu\.sass-cache\a670565bf3cc7a90d9074fdcc8d153bc9f26acd5\_alerts.scssc" />
+    <Content Include="ContentMenu\.sass-cache\a670565bf3cc7a90d9074fdcc8d153bc9f26acd5\_badges.scssc" />
+    <Content Include="ContentMenu\.sass-cache\a670565bf3cc7a90d9074fdcc8d153bc9f26acd5\_breadcrumbs.scssc" />
+    <Content Include="ContentMenu\.sass-cache\a670565bf3cc7a90d9074fdcc8d153bc9f26acd5\_button-groups.scssc" />
+    <Content Include="ContentMenu\.sass-cache\a670565bf3cc7a90d9074fdcc8d153bc9f26acd5\_buttons.scssc" />
+    <Content Include="ContentMenu\.sass-cache\a670565bf3cc7a90d9074fdcc8d153bc9f26acd5\_carousel.scssc" />
+    <Content Include="ContentMenu\.sass-cache\a670565bf3cc7a90d9074fdcc8d153bc9f26acd5\_close.scssc" />
+    <Content Include="ContentMenu\.sass-cache\a670565bf3cc7a90d9074fdcc8d153bc9f26acd5\_code.scssc" />
+    <Content Include="ContentMenu\.sass-cache\a670565bf3cc7a90d9074fdcc8d153bc9f26acd5\_component-animations.scssc" />
+    <Content Include="ContentMenu\.sass-cache\a670565bf3cc7a90d9074fdcc8d153bc9f26acd5\_dropdowns.scssc" />
+    <Content Include="ContentMenu\.sass-cache\a670565bf3cc7a90d9074fdcc8d153bc9f26acd5\_forms.scssc" />
+    <Content Include="ContentMenu\.sass-cache\a670565bf3cc7a90d9074fdcc8d153bc9f26acd5\_glyphicons.scssc" />
+    <Content Include="ContentMenu\.sass-cache\a670565bf3cc7a90d9074fdcc8d153bc9f26acd5\_grid.scssc" />
+    <Content Include="ContentMenu\.sass-cache\a670565bf3cc7a90d9074fdcc8d153bc9f26acd5\_input-groups.scssc" />
+    <Content Include="ContentMenu\.sass-cache\a670565bf3cc7a90d9074fdcc8d153bc9f26acd5\_jumbotron.scssc" />
+    <Content Include="ContentMenu\.sass-cache\a670565bf3cc7a90d9074fdcc8d153bc9f26acd5\_labels.scssc" />
+    <Content Include="ContentMenu\.sass-cache\a670565bf3cc7a90d9074fdcc8d153bc9f26acd5\_list-group.scssc" />
+    <Content Include="ContentMenu\.sass-cache\a670565bf3cc7a90d9074fdcc8d153bc9f26acd5\_media.scssc" />
+    <Content Include="ContentMenu\.sass-cache\a670565bf3cc7a90d9074fdcc8d153bc9f26acd5\_mixins.scssc" />
+    <Content Include="ContentMenu\.sass-cache\a670565bf3cc7a90d9074fdcc8d153bc9f26acd5\_modals.scssc" />
+    <Content Include="ContentMenu\.sass-cache\a670565bf3cc7a90d9074fdcc8d153bc9f26acd5\_navbar.scssc" />
+    <Content Include="ContentMenu\.sass-cache\a670565bf3cc7a90d9074fdcc8d153bc9f26acd5\_navs.scssc" />
+    <Content Include="ContentMenu\.sass-cache\a670565bf3cc7a90d9074fdcc8d153bc9f26acd5\_normalize.scssc" />
+    <Content Include="ContentMenu\.sass-cache\a670565bf3cc7a90d9074fdcc8d153bc9f26acd5\_pager.scssc" />
+    <Content Include="ContentMenu\.sass-cache\a670565bf3cc7a90d9074fdcc8d153bc9f26acd5\_pagination.scssc" />
+    <Content Include="ContentMenu\.sass-cache\a670565bf3cc7a90d9074fdcc8d153bc9f26acd5\_panels.scssc" />
+    <Content Include="ContentMenu\.sass-cache\a670565bf3cc7a90d9074fdcc8d153bc9f26acd5\_popovers.scssc" />
+    <Content Include="ContentMenu\.sass-cache\a670565bf3cc7a90d9074fdcc8d153bc9f26acd5\_print.scssc" />
+    <Content Include="ContentMenu\.sass-cache\a670565bf3cc7a90d9074fdcc8d153bc9f26acd5\_progress-bars.scssc" />
+    <Content Include="ContentMenu\.sass-cache\a670565bf3cc7a90d9074fdcc8d153bc9f26acd5\_responsive-embed.scssc" />
+    <Content Include="ContentMenu\.sass-cache\a670565bf3cc7a90d9074fdcc8d153bc9f26acd5\_responsive-utilities.scssc" />
+    <Content Include="ContentMenu\.sass-cache\a670565bf3cc7a90d9074fdcc8d153bc9f26acd5\_scaffolding.scssc" />
+    <Content Include="ContentMenu\.sass-cache\a670565bf3cc7a90d9074fdcc8d153bc9f26acd5\_tables.scssc" />
+    <Content Include="ContentMenu\.sass-cache\a670565bf3cc7a90d9074fdcc8d153bc9f26acd5\_thumbnails.scssc" />
+    <Content Include="ContentMenu\.sass-cache\a670565bf3cc7a90d9074fdcc8d153bc9f26acd5\_tooltip.scssc" />
+    <Content Include="ContentMenu\.sass-cache\a670565bf3cc7a90d9074fdcc8d153bc9f26acd5\_type.scssc" />
+    <Content Include="ContentMenu\.sass-cache\a670565bf3cc7a90d9074fdcc8d153bc9f26acd5\_utilities.scssc" />
+    <Content Include="ContentMenu\.sass-cache\a670565bf3cc7a90d9074fdcc8d153bc9f26acd5\_variables.scssc" />
+    <Content Include="ContentMenu\.sass-cache\a670565bf3cc7a90d9074fdcc8d153bc9f26acd5\_wells.scssc" />
+    <Content Include="ContentMenu\.sass-cache\abdc1bb9f0b10ff677728a9d48fb4a785818619c\_alerts.scssc" />
+    <Content Include="ContentMenu\.sass-cache\abdc1bb9f0b10ff677728a9d48fb4a785818619c\_background-variant.scssc" />
+    <Content Include="ContentMenu\.sass-cache\abdc1bb9f0b10ff677728a9d48fb4a785818619c\_border-radius.scssc" />
+    <Content Include="ContentMenu\.sass-cache\abdc1bb9f0b10ff677728a9d48fb4a785818619c\_buttons.scssc" />
+    <Content Include="ContentMenu\.sass-cache\abdc1bb9f0b10ff677728a9d48fb4a785818619c\_center-block.scssc" />
+    <Content Include="ContentMenu\.sass-cache\abdc1bb9f0b10ff677728a9d48fb4a785818619c\_clearfix.scssc" />
+    <Content Include="ContentMenu\.sass-cache\abdc1bb9f0b10ff677728a9d48fb4a785818619c\_forms.scssc" />
+    <Content Include="ContentMenu\.sass-cache\abdc1bb9f0b10ff677728a9d48fb4a785818619c\_gradients.scssc" />
+    <Content Include="ContentMenu\.sass-cache\abdc1bb9f0b10ff677728a9d48fb4a785818619c\_grid-framework.scssc" />
+    <Content Include="ContentMenu\.sass-cache\abdc1bb9f0b10ff677728a9d48fb4a785818619c\_grid.scssc" />
+    <Content Include="ContentMenu\.sass-cache\abdc1bb9f0b10ff677728a9d48fb4a785818619c\_hide-text.scssc" />
+    <Content Include="ContentMenu\.sass-cache\abdc1bb9f0b10ff677728a9d48fb4a785818619c\_image.scssc" />
+    <Content Include="ContentMenu\.sass-cache\abdc1bb9f0b10ff677728a9d48fb4a785818619c\_labels.scssc" />
+    <Content Include="ContentMenu\.sass-cache\abdc1bb9f0b10ff677728a9d48fb4a785818619c\_list-group.scssc" />
+    <Content Include="ContentMenu\.sass-cache\abdc1bb9f0b10ff677728a9d48fb4a785818619c\_nav-divider.scssc" />
+    <Content Include="ContentMenu\.sass-cache\abdc1bb9f0b10ff677728a9d48fb4a785818619c\_nav-vertical-align.scssc" />
+    <Content Include="ContentMenu\.sass-cache\abdc1bb9f0b10ff677728a9d48fb4a785818619c\_opacity.scssc" />
+    <Content Include="ContentMenu\.sass-cache\abdc1bb9f0b10ff677728a9d48fb4a785818619c\_pagination.scssc" />
+    <Content Include="ContentMenu\.sass-cache\abdc1bb9f0b10ff677728a9d48fb4a785818619c\_panels.scssc" />
+    <Content Include="ContentMenu\.sass-cache\abdc1bb9f0b10ff677728a9d48fb4a785818619c\_progress-bar.scssc" />
+    <Content Include="ContentMenu\.sass-cache\abdc1bb9f0b10ff677728a9d48fb4a785818619c\_reset-filter.scssc" />
+    <Content Include="ContentMenu\.sass-cache\abdc1bb9f0b10ff677728a9d48fb4a785818619c\_reset-text.scssc" />
+    <Content Include="ContentMenu\.sass-cache\abdc1bb9f0b10ff677728a9d48fb4a785818619c\_resize.scssc" />
+    <Content Include="ContentMenu\.sass-cache\abdc1bb9f0b10ff677728a9d48fb4a785818619c\_responsive-visibility.scssc" />
+    <Content Include="ContentMenu\.sass-cache\abdc1bb9f0b10ff677728a9d48fb4a785818619c\_size.scssc" />
+    <Content Include="ContentMenu\.sass-cache\abdc1bb9f0b10ff677728a9d48fb4a785818619c\_tab-focus.scssc" />
+    <Content Include="ContentMenu\.sass-cache\abdc1bb9f0b10ff677728a9d48fb4a785818619c\_table-row.scssc" />
+    <Content Include="ContentMenu\.sass-cache\abdc1bb9f0b10ff677728a9d48fb4a785818619c\_text-emphasis.scssc" />
+    <Content Include="ContentMenu\.sass-cache\abdc1bb9f0b10ff677728a9d48fb4a785818619c\_text-overflow.scssc" />
+    <Content Include="ContentMenu\.sass-cache\abdc1bb9f0b10ff677728a9d48fb4a785818619c\_vendor-prefixes.scssc" />
+    <Content Include="ContentMenu\css\.DS_Store" />
+    <Content Include="ContentMenu\css\bootstrap.css.map" />
+    <Content Include="ContentMenu\css\style.css.map" />
+    <Content Include="ContentMenu\fonts\.DS_Store" />
+    <Content Include="ContentMenu\fonts\bootstrap\glyphicons-halflings-regular.eot" />
+    <Content Include="ContentMenu\fonts\bootstrap\glyphicons-halflings-regular.ttf" />
+    <Content Include="ContentMenu\fonts\bootstrap\glyphicons-halflings-regular.woff" />
+    <Content Include="ContentMenu\fonts\bootstrap\glyphicons-halflings-regular.woff2" />
+    <Content Include="ContentMenu\fonts\flaticon\.DS_Store" />
+    <Content Include="ContentMenu\fonts\flaticon\font\Flaticon.eot" />
+    <Content Include="ContentMenu\fonts\flaticon\font\Flaticon.ttf" />
+    <Content Include="ContentMenu\fonts\flaticon\font\Flaticon.woff" />
+    <Content Include="ContentMenu\fonts\flaticon\font\_flaticon.scss" />
+    <Content Include="ContentMenu\fonts\flaticon\license\license.pdf" />
+    <Content Include="ContentMenu\fonts\icomoon\.DS_Store" />
+    <Content Include="ContentMenu\fonts\icomoon\icomoon.eot" />
+    <Content Include="ContentMenu\fonts\icomoon\icomoon.ttf" />
+    <Content Include="ContentMenu\fonts\icomoon\icomoon.woff" />
+    <Content Include="ContentMenu\images\.DS_Store" />
+    <Content Include="ContentMenu\js\.DS_Store" />
+    <Content Include="ContentMenu\sass\.DS_Store" />
+    <Content Include="ContentMenu\sass\bootstrap.scss" />
+    <Content Include="ContentMenu\sass\bootstrap\mixins\_alerts.scss" />
+    <Content Include="ContentMenu\sass\bootstrap\mixins\_background-variant.scss" />
+    <Content Include="ContentMenu\sass\bootstrap\mixins\_border-radius.scss" />
+    <Content Include="ContentMenu\sass\bootstrap\mixins\_buttons.scss" />
+    <Content Include="ContentMenu\sass\bootstrap\mixins\_center-block.scss" />
+    <Content Include="ContentMenu\sass\bootstrap\mixins\_clearfix.scss" />
+    <Content Include="ContentMenu\sass\bootstrap\mixins\_forms.scss" />
+    <Content Include="ContentMenu\sass\bootstrap\mixins\_gradients.scss" />
+    <Content Include="ContentMenu\sass\bootstrap\mixins\_grid-framework.scss" />
+    <Content Include="ContentMenu\sass\bootstrap\mixins\_grid.scss" />
+    <Content Include="ContentMenu\sass\bootstrap\mixins\_hide-text.scss" />
+    <Content Include="ContentMenu\sass\bootstrap\mixins\_image.scss" />
+    <Content Include="ContentMenu\sass\bootstrap\mixins\_labels.scss" />
+    <Content Include="ContentMenu\sass\bootstrap\mixins\_list-group.scss" />
+    <Content Include="ContentMenu\sass\bootstrap\mixins\_nav-divider.scss" />
+    <Content Include="ContentMenu\sass\bootstrap\mixins\_nav-vertical-align.scss" />
+    <Content Include="ContentMenu\sass\bootstrap\mixins\_opacity.scss" />
+    <Content Include="ContentMenu\sass\bootstrap\mixins\_pagination.scss" />
+    <Content Include="ContentMenu\sass\bootstrap\mixins\_panels.scss" />
+    <Content Include="ContentMenu\sass\bootstrap\mixins\_progress-bar.scss" />
+    <Content Include="ContentMenu\sass\bootstrap\mixins\_reset-filter.scss" />
+    <Content Include="ContentMenu\sass\bootstrap\mixins\_reset-text.scss" />
+    <Content Include="ContentMenu\sass\bootstrap\mixins\_resize.scss" />
+    <Content Include="ContentMenu\sass\bootstrap\mixins\_responsive-visibility.scss" />
+    <Content Include="ContentMenu\sass\bootstrap\mixins\_size.scss" />
+    <Content Include="ContentMenu\sass\bootstrap\mixins\_tab-focus.scss" />
+    <Content Include="ContentMenu\sass\bootstrap\mixins\_table-row.scss" />
+    <Content Include="ContentMenu\sass\bootstrap\mixins\_text-emphasis.scss" />
+    <Content Include="ContentMenu\sass\bootstrap\mixins\_text-overflow.scss" />
+    <Content Include="ContentMenu\sass\bootstrap\mixins\_vendor-prefixes.scss" />
+    <Content Include="ContentMenu\sass\bootstrap\_alerts.scss" />
+    <Content Include="ContentMenu\sass\bootstrap\_badges.scss" />
+    <Content Include="ContentMenu\sass\bootstrap\_breadcrumbs.scss" />
+    <Content Include="ContentMenu\sass\bootstrap\_button-groups.scss" />
+    <Content Include="ContentMenu\sass\bootstrap\_buttons.scss" />
+    <Content Include="ContentMenu\sass\bootstrap\_carousel.scss" />
+    <Content Include="ContentMenu\sass\bootstrap\_close.scss" />
+    <Content Include="ContentMenu\sass\bootstrap\_code.scss" />
+    <Content Include="ContentMenu\sass\bootstrap\_component-animations.scss" />
+    <Content Include="ContentMenu\sass\bootstrap\_dropdowns.scss" />
+    <Content Include="ContentMenu\sass\bootstrap\_forms.scss" />
+    <Content Include="ContentMenu\sass\bootstrap\_glyphicons.scss" />
+    <Content Include="ContentMenu\sass\bootstrap\_grid.scss" />
+    <Content Include="ContentMenu\sass\bootstrap\_input-groups.scss" />
+    <Content Include="ContentMenu\sass\bootstrap\_jumbotron.scss" />
+    <Content Include="ContentMenu\sass\bootstrap\_labels.scss" />
+    <Content Include="ContentMenu\sass\bootstrap\_list-group.scss" />
+    <Content Include="ContentMenu\sass\bootstrap\_media.scss" />
+    <Content Include="ContentMenu\sass\bootstrap\_mixins.scss" />
+    <Content Include="ContentMenu\sass\bootstrap\_modals.scss" />
+    <Content Include="ContentMenu\sass\bootstrap\_navbar.scss" />
+    <Content Include="ContentMenu\sass\bootstrap\_navs.scss" />
+    <Content Include="ContentMenu\sass\bootstrap\_normalize.scss" />
+    <Content Include="ContentMenu\sass\bootstrap\_pager.scss" />
+    <Content Include="ContentMenu\sass\bootstrap\_pagination.scss" />
+    <Content Include="ContentMenu\sass\bootstrap\_panels.scss" />
+    <Content Include="ContentMenu\sass\bootstrap\_popovers.scss" />
+    <Content Include="ContentMenu\sass\bootstrap\_print.scss" />
+    <Content Include="ContentMenu\sass\bootstrap\_progress-bars.scss" />
+    <Content Include="ContentMenu\sass\bootstrap\_responsive-embed.scss" />
+    <Content Include="ContentMenu\sass\bootstrap\_responsive-utilities.scss" />
+    <Content Include="ContentMenu\sass\bootstrap\_scaffolding.scss" />
+    <Content Include="ContentMenu\sass\bootstrap\_tables.scss" />
+    <Content Include="ContentMenu\sass\bootstrap\_theme.scss" />
+    <Content Include="ContentMenu\sass\bootstrap\_thumbnails.scss" />
+    <Content Include="ContentMenu\sass\bootstrap\_tooltip.scss" />
+    <Content Include="ContentMenu\sass\bootstrap\_type.scss" />
+    <Content Include="ContentMenu\sass\bootstrap\_utilities.scss" />
+    <Content Include="ContentMenu\sass\bootstrap\_variables.scss" />
+    <Content Include="ContentMenu\sass\bootstrap\_wells.scss" />
+    <Content Include="ContentMenu\sass\style.scss" />
+    <Content Include="ContentMenu\sass\_bootstrap-compass.scss" />
+    <Content Include="ContentMenu\sass\_bootstrap-mincer.scss" />
+    <Content Include="ContentMenu\sass\_bootstrap-sprockets.scss" />
+    <None Include="scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="scripts\jquery-1.10.2.js" />
+    <Content Include="scripts\jquery-1.10.2.min.js" />
+    <None Include="scripts\jquery.validate-vsdoc.js" />
+    <Content Include="scripts\jquery.validate.js" />
+    <Content Include="scripts\jquery.validate.min.js" />
+    <Content Include="scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Views\Shared\_Login.cshtml">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\Startup.cs" />
+    <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\MenuYeniController.cs" />
+    <Compile Include="Controllers\YemekYeniController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Kullanici\AppRole.cs" />
+    <Compile Include="Kullanici\UserApps.cs" />
+    <Compile Include="Migrations\201807191938207_InitialCreate.cs" />
+    <Compile Include="Migrations\201807191938207_InitialCreate.Designer.cs">
+      <DependentUpon>201807191938207_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\isUnvan.cs" />
+    <Compile Include="Models\KisiMenuModel.cs" />
+    <Compile Include="Models\LoginViewModel.cs" />
+    <Compile Include="Models\MenuViewModel.cs" />
+    <Compile Include="Models\RegisterViewModel.cs" />
+    <Compile Include="Models\RoleViewModel.cs" />
+    <Compile Include="Models\YemekViewModel.cs" />
+    <Compile Include="Models\MenuModel.cs" />
+    <Compile Include="Models\VerimDbContext.cs" />
+    <Compile Include="Models\YemekModel.cs" />
+    <Compile Include="Models\YemekKategoriModel.cs" />
+    <Compile Include="Models\YemekMenuModel.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewData\HomeView.cs" />
+    <Compile Include="ViewData\menusYemekVM.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\web.config" />
+    <Content Include="packages.config" />
+    <Content Include="ApplicationInsights.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="scripts\jquery-1.10.2.min.map" />
+    <Content Include="Views\Account\Login.cshtml" />
+    <Content Include="Views\Account\Register.cshtml" />
+    <Content Include="Views\Account\List.cshtml" />
+    <Content Include="Views\YemekYeni\Create.cshtml" />
+    <Content Include="Views\YemekYeni\Delete.cshtml" />
+    <Content Include="Views\YemekYeni\Details.cshtml" />
+    <Content Include="Views\YemekYeni\Edit.cshtml" />
+    <Content Include="Views\YemekYeni\Index.cshtml" />
+    <Content Include="Views\MenuYeni\Create.cshtml" />
+    <Content Include="Views\MenuYeni\Delete.cshtml" />
+    <Content Include="Views\MenuYeni\Details.cshtml" />
+    <Content Include="Views\MenuYeni\Edit.cshtml" />
+    <Content Include="Views\MenuYeni\Index.cshtml" />
+    <Content Include="Views\Home\Show.cshtml" />
+    <Content Include="Views\Account\Edit.cshtml" />
+    <Content Include="Views\Account\ChangePassword.cshtml" />
+    <Content Include="Views\Account\Delete.cshtml" />
+    <Content Include="Views\Shared\_LayoutMenu.cshtml" />
+    <Content Include="Views\Account\Details.cshtml" />
+    <Content Include="Views\Home\bilgim.cshtml" />
+    <Content Include="Views\Home\Sec.cshtml" />
+    <Content Include="Views\Home\price.cshtml" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="Content\" />
+    <Folder Include="Tablos\" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201807191938207_InitialCreate.resx">
+      <DependentUpon>201807191938207_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>53860</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:53860/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

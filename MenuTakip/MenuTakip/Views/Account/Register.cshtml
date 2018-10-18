@@ -1,0 +1,164 @@
+﻿
+@model MenuTakip.Models.RegisterViewModel
+@{
+    ViewBag.Title = "Register";
+}
+@Html.ValidationSummary()
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    
+
+    <!-- Input -->
+    <div class="row clearfix">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <div class="card">
+                <div class="header">
+                    <h2>Kullanıcı Ekle</h2>
+                    <div class="header-dropdown m-r--5">
+                        <input type="submit" value="Kaydet" class="btn btn-primary waves-effect">
+                        <button type="button" class="btn btn-primary waves-effect" onclick="location.href='@Url.Action("List", "Account")'">Listeye Geri Dön</button>
+                    </div>
+                </div>
+                <div class="body">
+                    <div class="demo-masked-input">
+                        <div class="row clearfix">
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <div class="form-line">
+                                        @Html.TextBoxFor(m => m.name, new { @class = "form-control", @placeholder = "İsim" })
+                                        @Html.ValidationMessageFor(model => model.name)
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row clearfix">
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <div class="form-line">
+                                        @Html.TextBoxFor(m => m.soyad, new { @class = "form-control", @placeholder = "Soyisim" })
+                                        @Html.ValidationMessageFor(model => model.soyad)
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row clearfix">
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <div class="form-line">
+                                        @Html.TextBoxFor(m => m.UserName, new { @class = "form-control",  @placeholder = "Kullanıcı Adı" })
+                                        @Html.ValidationMessageFor(model => model.UserName)
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row clearfix">
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <div class="form-line">
+                                        @Html.TextBoxFor(m => m.maas, new { @class = "form-control", @placeholder = "Maaş" })
+                                        @Html.ValidationMessageFor(model => model.maas)
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row clearfix">
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <div class="form-line">
+                                        @Html.TextBoxFor(m => m.Email, new { @class = "form-control email", @placeholder = "Ex: example@example.com" })
+                                        @Html.ValidationMessageFor(model => model.Email)
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row clearfix">
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <div class="form-line">
+                                        @Html.PasswordFor(m => m.Password, new { @class = "form-control", @placeholder = "Şifre" })
+                                        @Html.ValidationMessageFor(model => model.Password)
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row clearfix">
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <div class="form-line">
+                                        @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control", @placeholder = "Şifreyi onayla " })
+                                        @Html.ValidationMessageFor(model => model.ConfirmPassword)
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row clearfix">
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    @Html.DropDownListFor(model => model.RoleId, Model.AvailableRoles, new { @class = "form-control show-tick" })
+                                    @Html.ValidationMessageFor(model => model.RoleId, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row clearfix">
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    @Html.DropDownListFor(model => model.isUnvanId, Model.Unvanlar, new { @class = "form-control show-tick" })
+                                    @Html.ValidationMessageFor(model => model.isUnvanId, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row clearfix">
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <div class="form-line">
+                                        @Html.TextBoxFor(m => m.kartNo, new { @class = "form-control", @placeholder = "Ex: kart numarası" })
+                                        @Html.ValidationMessageFor(model => model.kartNo)
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row clearfix">
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <div class="form-line">
+                                        @Html.TextBoxFor(m => m.tc, new { @class = "form-control", @placeholder = "TC kimlik" })
+                                        @Html.ValidationMessageFor(model => model.tc)
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row clearfix">
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <div class="form-line">
+                                        @Html.TextBoxFor(m => m.cep, new { @class = "form-control", @placeholder = "Telefon Numarası" })
+                                        @Html.ValidationMessageFor(model => model.cep)
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row clearfix">
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <div class="form-line">
+                                        @Html.TextAreaFor(m => m.adres, new { @class = "form-control", @placeholder = "adres" })
+                                        @Html.ValidationMessageFor(model => model.adres)
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                       
+                       
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+            <!-- #END# Input -->
+}
+
+

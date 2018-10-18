@@ -1,0 +1,38 @@
+﻿@model IEnumerable<MenuTakip.Models.YemekModel>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.yemekAd)
+        </th>
+     
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.yemekAd)
+        </td>
+     
+        <td>
+            @Html.DisplayFor(modelItem => item.YemekKategoriModel)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.yemekId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.yemekId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.yemekId })
+        </td>
+    </tr>
+}
+
+</table>

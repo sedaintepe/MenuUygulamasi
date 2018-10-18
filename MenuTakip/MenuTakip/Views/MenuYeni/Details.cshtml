@@ -1,0 +1,60 @@
+﻿@model MenuTakip.Models.MenuModel
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>MenuModel</h4>
+	<hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Yemek.yemekAd)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Yemek.yemekAd)
+        </dd>
+
+        <dt>
+           
+            @Html.DisplayNameFor(model => model.Kisi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Kisi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.tarih)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tarih)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.menuFiyat)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.menuFiyat)
+        </dd>
+        <dd>
+            @Html.DisplayNameFor(model => model.menuBaslik)
+        </dd>
+
+        <dd>
+            @Html.DisplayFor(model => model.menuBaslik)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.menuId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
+
+
